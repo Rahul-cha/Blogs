@@ -1,0 +1,48 @@
+﻿@model List<BlogPost>
+
+	<h1>
+		@ViewBag.Name Blogs
+	</h1>
+
+	<style>
+		.id{
+			padding:10px;
+			border: 1px solid black;
+			
+		}
+
+		#gap{
+text-align: center;
+padding:10px 20px;
+		}
+
+		body{
+			background: linear-gradient(45deg, greenyellow, dodgerblue);
+		}
+
+		#gap img{
+	/* max-width: 80%;
+  height: 50%;*/
+     height:200px; 
+   width:250px;
+
+}
+
+
+#gap:not(:has(img)){
+	display:none;
+}
+	</style>
+
+@foreach(var blogs in Model) {
+	<div id="gap" class="blockquote"> 
+		<h1>@blogs.Title</h1>
+		<p>@blogs.Description</p>
+			@if (blogs.ImageUrl != null)
+			{
+				<img src="@blogs.ImageUrl"/>
+			}
+		<p style="font-size:12px">@blogs.CreatedDate @ViewBag.Name</p>
+	</div>
+
+	}

@@ -1,0 +1,269 @@
+﻿@model BlogWebsite.ViewModels.ViewProfileViewModel
+
+<head>
+
+    <title>
+        Profile Page
+    </title>
+
+    <style>
+        body{
+            background-color:antiquewhite;
+        }
+
+        .profile{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+        }
+
+         img{
+            border-radius:50%;
+            width:150px;
+            height:150px;
+        }
+
+        li {
+            list-style-type:none;
+            padding:10px;
+        }
+
+        .bio{
+           /* margin-top:45px;
+            padding: 10px;
+            width:50%;*/
+            height:auto;
+           /* display: flex;
+            justify-content: center;
+            align-items: center;*/
+           /*margin-left:320px;*/
+        }
+
+        .details{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding:10px;
+            
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <div class="profile">
+
+        <div class="profile-pic">
+            <img src="ViewBag.profilepic" />
+
+           
+        </div>
+
+        
+
+        <div class="profile-info">
+            <ul>
+                <li> <h1>@Model.Name</h1> </li>
+            <li>Web Developer</li>
+                <li>@Model.Email</li>
+            </ul>
+        </div>
+
+        </div>
+
+
+    <div class="details">
+        <form asp-action="ProfilePage" method="post" enctype="multipart/form-data">
+
+            <div class="bio">
+            <h2> About me (Bio)</h2>
+       <textarea asp-for="Bio" rows="3" value="@Model.Bio"></textarea>
+        </div>
+
+        
+            <ul>
+            <li> <input asp-for="Name" type="text" value="@Model.Name"> Name  </li>
+
+                <li> <input asp-for="ProfilePic" /> </li>
+
+                <li>  Username: @Model.UserName  </li>
+
+            @*<li><input asp-for="UserName" type="text" value="@ViewBag.username" /> Username ()</li>*@
+            <li> <input asp-for="Contact_Number" type="text" value="@Model.Contact_Number" /> Contact Number</li>
+
+
+            <li> Email: @Model.Email </li>
+
+            <input asp-for="uid" value="@Model.uid" hidden />
+
+            @*<li> <input asp-for="Email" type="email" value="@ViewBag.email"> Email</li>*@
+           
+
+                <li>no. of Blogs (written): .value </li>
+           
+            <li><button type="submit">Apply Changes</button>
+           @* <button type="submit">Cancel</button> </li>*@
+
+            </ul>
+        </form>
+        </div>
+
+        
+      @*  <div class="skills">
+        <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+            <li>PHP</li>
+            <li>MySQL</li>
+        </ul>
+
+
+
+    </div>*@
+
+    
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*@model UserDetails
+
+<head>
+    <title>
+        Profile
+    </title>
+    <style>
+
+        @@media (max-width:600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        body{
+            background: linear-gradient(45deg, greenyellow, dodgerblue);
+        }
+
+        img {
+            border-radius: 50%;
+
+            width: 200px;
+            height:200px;
+            display: flex;
+            justify-content: center;
+        }
+
+
+        .container, .top {
+            display: flex;
+            justify-content: center;
+        }
+
+        ul {
+            list-style-type: none;
+            font-weight: light;
+            font-size: 15px;
+        }
+
+        .details {
+            float: left;
+            padding: 20px;
+            width: 80%;
+            background-color: #f1f1f1;
+            height: 500px;
+        }
+
+        input[type=text], input[type=email], select {
+            width: 90%;
+            padding: 11px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+      button {
+            height:20%;
+
+            margin-right:35px;
+        }
+
+        /*input[type=submit] {
+           
+            background-color: #4CAF50;
+            color: white;
+            margin-right: 35px;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }*/
+    </style>
+
+</head>
+
+<body>
+
+    <div class="top">
+        @*<h1> ... Profile</h1>
+
+        <img src="~/blogs/images61c3cac3-6aaa-48da-8f17-342b84b99616_id.jpg.png">
+    </div>
+
+     @* profile ko lagi xuttai image     *@
+    
+     
+     
+    @* <div class="container">
+
+
+
+        <div class="details">
+            <ul>
+                <li>Name <input type="text" value="Full Name">  </li>
+
+                <li>UserName <input type="text" value="User Name"></li>
+                <li>Contact Number <input type="text" value="Contact no"</li>
+                <li>Email <input type="email" value="Email"></li>
+                <li>Gender <input type="radio"> Male  </li>
+                <li>no. of Blogs (written): .value </li>
+           
+            <li><button type="submit">Apply Changes</button>
+            <button type="submit">Cancel</button> </li>
+
+            </ul>
+        </div>
+
+    </div>
+</body>
+
+*@

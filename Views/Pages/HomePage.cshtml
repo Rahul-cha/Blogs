@@ -1,0 +1,133 @@
+﻿@model List<BlogPostViewModel>
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title>Home Page</title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+	*{
+		margin: 0px;
+		padding: 0px;
+		box-sizing: border-box;
+	}
+	
+	body{
+		background: linear-gradient(45deg, greenyellow, dodgerblue);
+	}
+
+	/* Create two unequal columns that floats next to each other */
+/* Left column */
+.leftcolumn {   
+  float: left;
+  width: 75%;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-content: center;
+ text-align: center;
+  padding: 30px;
+  margin: 20px;
+}
+
+.leftcolumn .posts {
+		flex:1;
+		margin: 50px 20px;
+		box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+		background-color:aliceblue;
+}
+
+.leftcolumn .posts img{
+	width:100%;
+	height: auto;
+}
+
+/* Right column */
+.rightcolumn {
+	display:flex;
+	float:right;
+ 
+  width: 25%;
+  padding-left: 20px;
+}
+
+
+.posts{
+	padding:10px 20px;
+
+}
+
+
+.posts img{
+	/* max-width: 80%;
+  height: 50%;*/
+     height:200px; 
+   width:150px;
+
+}
+
+
+/*.posts:not(:has(img)){
+	display:none;
+}*/
+/*
+.foot{
+	
+}*/
+
+/*img{
+	max-height:400px;
+	max-width:400px;
+	height:250px;
+	width: 200px;
+	border:none;
+}*/
+</style>
+
+
+
+		<p> @ViewBag.Name </p>
+	<button> 	<a href="@Url.Action("PostBlog", "Blogs", new{uid=ViewBag.Uid})" style="text-decoration: none;"> Create a Post </a>  @*, new {uid = Model.UserLoginId}*@  </button>
+	<button>   <a href="@Url.Action("PersonalBlogs","Pages", new{uid=ViewBag.Uid, name=ViewBag.Name})" style="text-decoration: none;"> Personal </a> </button>
+
+	<button>   <a href="@Url.Action("ProfilePage","Pages", new{uid=ViewBag.Uid, name=ViewBag.Name})" style="text-decoration: none;"> Profile Page </a> </button>
+
+	<div class="leftcolumn">		
+@*	<button class="open-button" onclick="openForm()">Post</button>*@
+
+	@foreach(var blogs in Model) {
+	<div class="posts"> 
+		<h1>@blogs.PostTitle</h1>
+		<p>@blogs.PostDescription</p>
+			@if (blogs.ImageUrl != null)
+			{
+				<img src="@blogs.ImageUrl"/>
+			}
+			<p id="foot" style="font-size:10px">@blogs.CreatedDate <br> @blogs.Name</p>
+	</div>
+	}
+
+	</div>
+
+	@*<p> @Model.Title</p>*@
+
+	<div class="rightcolumn">
+		 <div class="card">
+      <h2>About Me</h2>
+      <div class="fakeimg" style="height:100px;">Image</div>
+      <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
+    </div>
+	</div>
+
+
+</html>
+
+
+@*Lets not use ViewComponent, Partial ViewComponent at the moment
+
+
+@await Component.InvokeAsync("BlogPostForm", new{uid = Model.UserLoginId});*@
